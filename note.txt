@@ -1,0 +1,11 @@
+create react
+    create react-app or vite (npx create vite@latest)
+    npm install
+    npm run dev
+
+tailwind
+    npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init -p
+    
+
+
