@@ -6,6 +6,46 @@ create react
 tailwind
     npm install -D tailwindcss postcss autoprefixer
     npx tailwindcss init -p
+
+How to use ref
+    const option1 = useRef(null);
+    const option2 = useRef(null);
+    const option3 = useRef(null);
+
+    // Putting refs into an array
+    const optionArray = [option1, option2, option3];
+
+    // Accessing the refs and modifying them
+    const handleClick = (index) => {
+        // Accessing the DOM node associated with a specific ref
+        const selectedOption = optionArray[index].current;
+
+        // Do something with the DOM node, for example, focus on it
+        if (selectedOption) {
+        selectedOption.focus();
+        }
+    };
+
+    return (
+        <div>
+        {/* Example usage: */}
+        <h1 ref={option1}>Option 1</h1>
+        <h1 ref={option2}>Option 2</h1>
+        <h1 ref={option3}>Option 3</h1>
+
+        {/* Triggering handleClick for the first option */}
+        <button onClick={() => handleClick(0)}>Focus on Option 1</button>
+        </div>
+    );
+
+Api 
+    https://opentdb.com/api_config.php
+    https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
+
+API call in the following ways:
+    XMLHttpRequest
+    Fetch API
+    Axios
     
 
 
