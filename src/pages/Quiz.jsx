@@ -50,40 +50,62 @@ const Quiz = () => {
     }
   
   return (
-      <div className="grid place-items-center h-screen  ">
-        <div className="container mx-{160px} p-4 bg-gray-100">
+      <div className="grid place-items-center h-screen bg-purple-100 ">
+        <div className="container mx-{160px} py-16 ring-2 ring-purple-500 rounded-md bg-purple-300">
           {question ? (
               <div>
                   {index < question.length ? (
-                        <div>
-                        <div className="text-2xl font-semi text-center mb-4">{question[index].question}</div>
-                        <div className="grid gap-4">
-                            {options.map((option, index) => (
+                        <div className="flex flex-col items-center">
+                              <div className="text-2xl font-semi 
+                                                text-white text-center 
+                                                mb-4 bg-purple-500 bg-opacity-50
+                                                p-4 ring-2 ring-purple-200
+                                                rounded-md shadow-lg
+                                            ">
+                                  {question[index].question}
+                              </div>
+                            <div className="grid grid-cols-2 gap-4">
+                                {options.map((option, index) => (
+                                    <button
+                                        className='bg-gradient-to-r 
+                                                    from-purple-300 to-purple-700 
+                                                    hover:from-purple-700 
+                                                    hover:to-purple-300 
+                                                    text-white font-bold 
+                                                    py-2 px-4 rounded-md 
+                                                    transition duration-300 ease-in-out 
+                                                    focus:outline-none 
+                                                    focus:shadow-outline-purple 
+                                                    active:bg-purple-800
+                                                    ring-1 ring-purple-600
+                                                    flex
+                                                    justify-start'
+                                        key={index}
+                                        onClick={() => handleOptionClick(option)}
+                                    >
+                                        <div className='mr-2'>{String.fromCharCode(97 + index)}.</div> {option}
+                                    </button>
+                                ))}
+                            </div>
                             <button
-                                key={index}
-                                onClick={() => handleOptionClick(option)}
+                                className="mt-4 p-2 bg-purple-800 
+                                            text-white rounded-md"
+                                onClick={handleNextQuestion}
                             >
-                                {option}
+                                Next
                             </button>
-                            ))}
-                        </div>
-                        <button
-                            className="mt-4 p-2 bg-blue-500 text-white rounded-md"
-                            onClick={handleNextQuestion}
-                        >
-                            Next Question
-                        </button>
-                        </div>
+                    </div>
+
                     ) : (
                         <div>
                         <h1 className="text-3xl font-semibold mb-4">Quiz Completed!</h1>
-                        <p>Your Score: {score}/{questions.length}</p>
+                        <p>Your Score: {score}/{question.length}</p>
                         </div>
                     )}
-                    </div>
+                </div>
           ): (
                 <div>
-                      no
+                      loading please wait
                 </div>    
           )}
     
