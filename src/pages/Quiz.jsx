@@ -1,5 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
+import Logo from './Logo';
+
 
 const BASE_URL = 'https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple';
 
@@ -92,12 +94,15 @@ const Quiz = () => {
     }
   
   return (
-      <div className="grid place-items-center h-screen  " style={{ background: 'linear-gradient(to right, #3d1223, #302b63, #3d1223)'}}>
+    <div className="grid place-items-center h-screen  " style={{ background: 'linear-gradient(to right, #3d1223, #302b63, #3d1223)'}}>
+          <div className="absolute top-0 left-0 m-4">
+            <Logo/>
+          </div>
           
           {question ? (
                 <div className="w-300 py-12 ring-1 
                             ring-purple-400 rounded-md
-                            bg-pink-300 bg-opacity-25 shadow-2xl
+                            bg-pink-300 bg-opacity-25 shadow-lg shadow-cyan-500/50
                         ">
                   {index + 1 < question.length ? (
                     <div className="flex flex-col items-center">
@@ -141,7 +146,7 @@ const Quiz = () => {
                                                     hover:from-purple-700 
                                                     hover:to-purple-700 
                                                     ring-1 ring-purple-600
-                                                    shadow-lg
+                                                    shadow-lg shadow-purple-500/50
                                             text-white rounded-md"
                                 onClick={handleNextQuestion}
                             >
@@ -180,9 +185,12 @@ const Quiz = () => {
                         Loading, please wait
                     </div>
                 </div>
-                  
-   
           )}
+
+          <div className="absolute bottom-0 right-0 m-4 text-white"
+                style={{fontFamily: 'caveat' }}>
+                kazue
+          </div>
     
     </div>
       
