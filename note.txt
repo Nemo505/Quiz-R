@@ -47,7 +47,37 @@ API call in the following ways:
     Fetch API
     Axios
 
+Quiz
+    index State (0, 1, 2,)
+    question State (to add the data)
+        fetch api inside useEffect
+        if question data exist,
+            if index > question.length
+    option State for shuffleOptions
+        Fisher-Yates Shuffle Algorithm
 
-    
+    lock, setLock = useState(false) //not to click again
+
+    const checkAns = (e, ans) 
+    if lock == false 
+        if question.ans == ans,
+        e.target.classList.add("correct")
+        setLock(true);
+
+        if question.ans  !== ans
+            e.target.classList.add("wrong")
+            option_array[question.ans-1].current.classList.add("correct")
+
+    question.option1 onclick = { (e) => {checkAns(e, 1)}}
+    ref={Option1}
+
+    option1 = useRef(null);
+    2,3....
+    option_array = [option1, ____,]
+
+knowledge
+    setIndex(prevIndex => prevIndex + 1);
+    // should not modify the state variable directly like (++index).
+    Instead, use the functional update form with the callback function provided to setIndex
 
 
