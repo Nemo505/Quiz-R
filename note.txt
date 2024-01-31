@@ -46,6 +46,8 @@ API call in the following ways:
     XMLHttpRequest
     Fetch API
     Axios
+
+
     
 
 
